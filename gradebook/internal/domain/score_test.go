@@ -4,7 +4,7 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/Retry33/software-construction/gradebook/internal/domain"
+	"github.com/Retry33/software-design/gradebook/internal/domain"
 )
 
 func TestNewScore(t *testing.T) {
