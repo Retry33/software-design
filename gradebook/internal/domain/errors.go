@@ -8,5 +8,6 @@ var (
 	ErrWeightOutOfRange     = errors.New("weight out of range")
 	ErrInvalidStudentID     = errors.New("invalid StudentID")
 	ErrInvalidCriterionID   = errors.New("invalid CriterionID")
-	ErrInvalidCriterionName = errors.New("name must not be empty")
+	ErrInvalidCriterionName = errors.New("criterion name must not be empty")
+	ErrInvalidStudentName   = errors.New("student name must not be empty")
 )
