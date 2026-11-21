@@ -58,3 +58,19 @@ func TestRubricBuilder(t *testing.T) {
 		})
 	}
 }
+
+func TestRubricBuilderFromExtendsExistingRubric(t *testing.T) {
+	// Arrange
+	base := newTestRubric(t)
+
+	// Act
+	_, err := domain.NewRubricBuilderFrom(base).Criterion("bonus", "Bonus", 5, 1).Build()
+
+	// Assert
+	if !errors.Is(err, domain.ErrWeightsExceedLimit) {
+		t.Fatalf("err = %v, want %v", err, domain.ErrWeightsExceedLimit)
+	}
+	if got := len(base.Criteria()); got != 2 {
+		t.Errorf("len(Criteria()) = %d, want 2", got)
+	}
+}
