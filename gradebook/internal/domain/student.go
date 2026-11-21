@@ -101,3 +101,12 @@ func scoreFor(rubric *Rubric, id CriterionID, value int) (Score, error) {
 
 	return NewScore(value, criterion.MaxScore())
 }
+
+func (s *Student) Evaluation(id CriterionID) (Evaluation, bool) {
+	e, ok := s.evaluations[id]
+	if !ok {
+		return Evaluation{}, false
+	}
+
+	return *e, true
+}
