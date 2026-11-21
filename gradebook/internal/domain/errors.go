@@ -15,4 +15,6 @@ var (
 	ErrWeightsExceedLimit     = errors.New("total weight of criteria exceeds 100")
 	ErrEvaluationExists       = errors.New("evaluation for this criterion already exists")
 	ErrEvaluationNotFound     = errors.New("evaluation for this criterion not found")
+	ErrStudentNotFound        = errors.New("student not found")
+	ErrStudentAlreadyExists   = errors.New("student already exists")
 )
