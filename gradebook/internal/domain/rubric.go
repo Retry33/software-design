@@ -11,6 +11,9 @@ func NewRubric() *Rubric {
 }
 
 func (r *Rubric) AddCriterion(c *Criterion) error {
+	if c == nil || c.ID().Value() == "" {
+		return ErrInvalidCriterionID
+	}
 	if _, ok := r.find(c.ID()); ok {
 		return ErrCriterionAlreadyExists
 	}

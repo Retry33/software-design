@@ -9,6 +9,9 @@ type Student struct {
 }
 
 func NewStudent(id StudentID, name string) (*Student, error) {
+	if id.Value() == "" {
+		return nil, ErrInvalidStudentID
+	}
 	normalizedName, ok := normalizeName(name)
 	if !ok {
 		return nil, ErrInvalidStudentName

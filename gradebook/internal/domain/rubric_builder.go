@@ -52,5 +52,5 @@ func (b *RubricBuilder) add(id, name string, maxScore, weight int) error {
 }
 
 func NewRubricBuilderFrom(rubric *Rubric) *RubricBuilder {
-	return &RubricBuilder{rubric: rubric}
+	return &RubricBuilder{rubric: &Rubric{criteria: rubric.Criteria()}}
 }

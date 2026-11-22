@@ -8,6 +8,15 @@ type Criterion struct {
 }
 
 func NewCriterion(id CriterionID, name string, maxScore MaxScore, w Weight) (*Criterion, error) {
+	if id.Value() == "" {
+		return nil, ErrInvalidCriterionID
+	}
+	if maxScore.Value() <= 0 {
+		return nil, ErrInvalidMaxScore
+	}
+	if w.Value() < minWeight || w.Value() > maxWeight {
+		return nil, ErrWeightOutOfRange
+	}
 	normalizedName, ok := normalizeName(name)
 	if !ok {
 		return nil, ErrInvalidCriterionName
